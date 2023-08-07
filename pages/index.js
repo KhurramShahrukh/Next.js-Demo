@@ -18,7 +18,7 @@ function HomePage(props) {
   )
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   // This code will always run on the server
   const client = await MongoClient.connect("mongodb+srv://Khurram:5z0jYPIDfujHKrwJ@meetup-application-db.kmxvr5i.mongodb.net/meetups?retryWrites=true&w=majority")
   const db = client.db();
@@ -35,8 +35,7 @@ export const getStaticProps = async () => {
         title: item.title,
         address: item.address
       }))
-    }, 
-    revalidate: 1
+    }
   }
 }
 
