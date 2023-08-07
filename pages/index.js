@@ -35,7 +35,8 @@ export const getStaticProps = async () => {
         title: item.title,
         address: item.address
       }))
-    }
+    }, 
+    revalidate: 1
   }
 }
 
