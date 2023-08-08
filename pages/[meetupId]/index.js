@@ -2,11 +2,18 @@ import MeetupDetail from '@/components/meetups/MeetupDetail'
 import { MongoClient, ObjectId } from 'mongodb'
 import Head from 'next/head'
 import React from 'react'
+import { DeleteCTA, Wrapper } from './styles'
 
 function MeetupId(props) {
   const { id, title, image, address, description } = props
+
+  const deleteMeetup = () => {
+
+
+  }
+
   return (
-    <>
+    <Wrapper>
       <Head>
         <title>{title}</title>
         <meta
@@ -21,7 +28,12 @@ function MeetupId(props) {
         address={address}
         description={description}
       />
-    </>
+      <div className='center-align'>
+        <DeleteCTA onClick={deleteMeetup}>
+          Delete
+        </DeleteCTA>
+      </div>
+    </Wrapper>
   )
 }
 
@@ -52,9 +64,9 @@ export const getStaticProps = async (context) => {
   const db = client.db();
   const meetupsCollection = db.collection('meetups');
   const selectedMeetup = await meetupsCollection.findOne({ _id: new ObjectId(meetupId) })
-  
+
   const { _id, title, image, address, description } = selectedMeetup
-  
+
   client.close()
 
   return {
