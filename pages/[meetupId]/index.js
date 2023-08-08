@@ -3,13 +3,17 @@ import { MongoClient, ObjectId } from 'mongodb'
 import Head from 'next/head'
 import React from 'react'
 import { DeleteCTA, Wrapper } from './styles'
+import { useRouter } from 'next/router'
+import axios from 'axios'
 
 function MeetupId(props) {
   const { id, title, image, address, description } = props
 
-  const deleteMeetup = () => {
+  const router = useRouter()
 
-
+  const deleteMeetup = async () => {
+    const data = await axios.delete('/api/delete-meetup', id)
+    router.push('/')
   }
 
   return (
