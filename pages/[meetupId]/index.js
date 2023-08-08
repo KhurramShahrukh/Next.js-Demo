@@ -2,9 +2,9 @@ import MeetupDetail from '@/components/meetups/MeetupDetail'
 import { MongoClient, ObjectId } from 'mongodb'
 import Head from 'next/head'
 import React from 'react'
-import { DeleteCTA, Wrapper } from './styles'
 import { useRouter } from 'next/router'
 import axios from 'axios'
+import { DeleteCTA, Wrapper } from '@/styles/styles'
 
 function MeetupId(props) {
   const { id, title, image, address, description } = props
