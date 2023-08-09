@@ -20,7 +20,7 @@ function MeetupId(props) {
     }
     setTimeout(() => {
       router.push('/')
-    }, 5000);
+    }, 10000);
   }
 
   return (
