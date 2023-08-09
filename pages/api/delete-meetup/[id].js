@@ -1,7 +1,6 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
 const meetupsHandler = async (req, res) => {
-    console.log("req:", req.query.id)
     if (req.method === 'DELETE') {
         try {
             const client = await MongoClient.connect("mongodb+srv://Khurram:5z0jYPIDfujHKrwJ@meetup-application-db.kmxvr5i.mongodb.net/meetups?retryWrites=true&w=majority")
