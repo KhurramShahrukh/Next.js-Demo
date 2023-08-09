@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
         address: item.address
       }))
     },
-    revalidate: 1
+    revalidate: 1800 // 30 minutes
   }
 }
 

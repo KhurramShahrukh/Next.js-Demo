@@ -15,12 +15,11 @@ function MeetupId(props) {
   const deleteMeetup = async () => {
     const data = await axios.delete(`/api/delete-meetup?id=${id}`)
     if (IS_CLIENT) {
+      // revalidate home page
       const url = `${window.location.origin}/api/revalidate?secret=${'42144be23f0e745ad57b2dd0bcb2cb69c59a92003cb7390485862e12b0b7bf98'}`
-      const revalidateHomePage = await axios.get(url)
+      await axios.get(url)
     }
-    setTimeout(() => {
-      router.push('/')
-    }, 10000);
+    router.push('/')
   }
 
   return (
