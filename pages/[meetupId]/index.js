@@ -12,7 +12,7 @@ function MeetupId(props) {
   const router = useRouter()
 
   const deleteMeetup = async () => {
-    const data = await axios.delete('/api/delete-meetup', id)
+    const data = await axios.delete(`/api/delete-meetup/${id}`)
     router.push('/')
   }
 
